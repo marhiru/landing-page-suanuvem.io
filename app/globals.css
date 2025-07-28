@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%; /* Keep default dark text for general use */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --font-inter: "Inter", sans-serif;
+
+    /* Custom Palette */
+    --primary: 198 99% 49%; /* #02A9F7 - vibrant tech blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 198 99% 25%; /* #02577A - mid-tone for secondary buttons/info cards */
+    --secondary-foreground: 0 0% 100%; /* White for secondary button text */
+    --accent: 198 99% 77%; /* #89D6FB - lighter complement for hover states and backgrounds */
+    --accent-foreground: 222.2 47.4% 11.2%; /* Keep default dark for accent foreground */
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Custom Palette for Dark Mode (adjust as needed) */
+    --primary: 198 99% 49%; /* #02A9F7 */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 198 99% 25%; /* #02577A */
+    --secondary-foreground: 0 0% 100%; /* White */
+    --accent: 198 99% 77%; /* #89D6FB */
+    --accent-foreground: 210 40% 98%; /* Light text for accent foreground */
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --radius: 0.5rem;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter);
+  }
+}
+
+@layer utilities {
+  /* Hero initial fade-in */
+  .animate-fade-in-initial {
+    animation: fadeInInitial 1s ease-out forwards;
+  }
+
+  @keyframes fadeInInitial {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Bento Grid enter animation */
+  .animate-bento-enter {
+    animation: bentoEnter 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Modern natural spring */
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateY(20px); /* Default spawn from bottom */
+  }
+
+  @keyframes bentoEnter {
+    from {
+      opacity: 0;
+      filter: blur(2px);
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  .blinking-cursor::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: currentColor;
+    margin-left: 0.125rem; /* 2px */
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  50% {
+    background-color: transparent;
+  }
+}
