@@ -30,15 +30,14 @@ export default function FeaturesBentoGrid() {
     const stepInterval = setInterval(() => {
       setPipelineStep(prev => {
         const nextStep = (prev + 1) % 3;
-        setPipelineTimer(0); // Reset timer ao mudar step
+        setPipelineTimer(0);
         return nextStep;
       });
-    }, 1000); // Aumentei para 3s para dar tempo do timer
+    }, 1000);
 
-    // Timer que roda a cada 100ms para simular progresso
     timerInterval = setInterval(() => {
       setPipelineTimer(prev => prev + 0.1);
-    }, 100);
+    }, 10000);
 
     return () => {
       clearInterval(stepInterval);
@@ -126,7 +125,7 @@ export default function FeaturesBentoGrid() {
                   <GitBranch className={`w-3 h-3 transition-all duration-100 ${
                     pipelineStep === 0 ? 'text-foreground transition-all' : 'text-muted-foreground'
                   }`} />
-                  <span className={`transition-colors duration-500 ${
+                  <span className={`transition-colors duration-1000 ${
                     pipelineStep === 0 ? 'text-foreground' : 
                     pipelineStep >= 0 ? 'text-muted-foreground' : 'text-muted-foreground'
                   }`}>
@@ -142,7 +141,7 @@ export default function FeaturesBentoGrid() {
                   <Activity className={`w-3 h-3 transition-all duration-100 ${
                     pipelineStep === 1 ? 'text-destructive transition-all' : 'text-muted-foreground'
                   }`} />
-                  <span className={`transition-colors duration-500 ${
+                  <span className={`transition-colors duration-1000 ${
                     pipelineStep === 1 ? 'text-destructive font-semibold' : 
                     pipelineStep >= 1 ? 'text-muted-foreground' : 'text-muted-foreground'
                   }`}>
@@ -156,7 +155,7 @@ export default function FeaturesBentoGrid() {
                 </div>
                 <div className="flex items-center gap-2 text-xs">
                   <Zap className={`w-3 h-3 transition-all duration-100 ${
-                    pipelineStep === 2 ? 'text-primary transition-all' : 'text-primary'
+                    pipelineStep === 2 ? 'text-primary transition-all' : 'text-muted-foreground'
                   }`} />
                   <span className={`transition-colors duration-500 ${
                     pipelineStep === 2 ? 'text-primary font-semibold' : 
