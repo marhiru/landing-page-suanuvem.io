@@ -14,7 +14,7 @@ export default function AutoScalingAnalytics() {
   const chartConfig = {
     scaling: {
       label: "Taxa de crescimento",
-      color: "hsl(var(--primary))",
+      color: "var(--chart-1)",
     },
   } satisfies ChartConfig;
   const scalingData: ScalingDataPoint[] = [
@@ -70,9 +70,9 @@ export default function AutoScalingAnalytics() {
           </div>
 
           <div className="h-80 w-full">
-            <ChartContainer config={chartConfig}>
-              <AreaChart data={scalingData}>
-                <defs>
+            <ChartContainer className="aspect-auto h-[250px] w-full" config={chartConfig}>
+              <AreaChart className="border-dashed" data={scalingData}>
+                {/* <defs>
                   <linearGradient
                     id="scalingGradient"
                     x1="0"
@@ -80,10 +80,10 @@ export default function AutoScalingAnalytics() {
                     x2="0"
                     y2="1"
                   >
-                    <stop offset="5%" stopColor="#e8e8e3" stopOpacity={0.2} />
-                    <stop offset="100%" stopColor="#e8e8e3" stopOpacity={0} />
+                    <stop offset="5%" stopColor="var(--chart-1)" stopOpacity={0.2} />
+                    <stop offset="100%" stopColor="var(--chart-1)" stopOpacity={0} />
                   </linearGradient>
-                </defs>
+                </defs> */}
                 <YAxis
                   axisLine={false}
                   tickLine={false}
@@ -93,9 +93,9 @@ export default function AutoScalingAnalytics() {
                 <Area
                   type="monotone"
                   dataKey="scaling"
-                  stroke="hsl(var(--primary))"
+                  stroke="var(--chart-1)"
                   strokeWidth={1}
-                  color="hsl(var(--primary))"
+                  color="var(--chart-1)"
                   fillOpacity={1}
                   fill="url(#scalingGradient)"
                 />
