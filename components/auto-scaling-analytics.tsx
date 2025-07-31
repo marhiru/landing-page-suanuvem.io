@@ -1,14 +1,22 @@
 import React from "react";
 import { Area, AreaChart, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { Badge } from "./ui/badge";
+import { ChartConfig, ChartContainer } from "./ui/chart";
 
 // Type para dados do gráfico
 interface ScalingDataPoint {
   scaling: number;
+
 }
 
 export default function AutoScalingAnalytics() {
   // Dados simplificados do gráfico - métrica unificada de scaling
+  const chartConfig = {
+    scaling: {
+      label: "Taxa de crescimento",
+      color: "hsl(var(--primary))",
+    },
+  } satisfies ChartConfig;
   const scalingData: ScalingDataPoint[] = [
     { scaling: 0 },
     { scaling: 16 },
@@ -62,7 +70,7 @@ export default function AutoScalingAnalytics() {
           </div>
 
           <div className="h-80 w-full">
-            <ResponsiveContainer width="100%" height="100%">
+            <ChartContainer config={chartConfig}>
               <AreaChart data={scalingData}>
                 <defs>
                   <linearGradient
@@ -86,12 +94,13 @@ export default function AutoScalingAnalytics() {
                   type="monotone"
                   dataKey="scaling"
                   stroke="hsl(var(--primary))"
+                  strokeWidth={1}
+                  color="hsl(var(--primary))"
                   fillOpacity={1}
                   fill="url(#scalingGradient)"
-                  strokeWidth={3}
                 />
               </AreaChart>
-            </ResponsiveContainer>
+            </ChartContainer>
           </div>
         </div>
       </div>
