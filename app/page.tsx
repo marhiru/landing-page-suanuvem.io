@@ -9,6 +9,7 @@ import {
   Server,
   ChevronRight,
   Network,
+  ArrowUpRight,
 } from "lucide-react";
 import HeroSection from "@/components/hero-section";
 import Navigation from "@/components/navigation";
@@ -17,6 +18,7 @@ import BigNumberSocialProof from "@/components/big-number-social-proof";
 import AutoScalingAnalytics from "@/components/auto-scaling-analytics";
 import FeaturesBentoGrid from "@/components/features-bento-grid";
 import CustomerStories from "@/components/customer-stories";
+import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   const timelineSteps = [
@@ -58,7 +60,7 @@ export default function LandingPage() {
       <HeroSection />
 
       {/* Social Proof - Logo Wall */}
-      <SocialProof />
+      {/* <SocialProof /> */}
 
       {/* Big Number Social Proof */}
       <BigNumberSocialProof />
@@ -72,43 +74,6 @@ export default function LandingPage() {
       {/* Customer Stories */}
       <CustomerStories />
 
-      {/* Implementation Timeline */}
-      <section className="py-16 bg-muted/20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              Veja o que você consegue com a Suanuvem em apenas{" "}
-              <span className="text-primary">4 semanas</span>
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {timelineSteps.map((step, i) => (
-              <div key={i} className="relative">
-                <div className="p-8 bg-card glass rounded-xl border">
-                  <div className="text-primary font-bold text-sm mb-2">
-                    {step.day}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-6">{step.title}</h3>
-                  <ul className="space-y-3">
-                    {step.items.map((item, j) => (
-                      <li key={j} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {i < timelineSteps.length - 1 && (
-                  <ChevronRight className="hidden lg:block absolute top-1/2 -right-4 w-8 h-8 text-primary transform -translate-y-1/2" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="py-20">
         <div className="container mx-auto px-6 text-center">
@@ -121,13 +86,23 @@ export default function LandingPage() {
               transformação cloud.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2">
-                Teste gratuito
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="px-8 py-4 border border-border bg-background text-foreground rounded-lg hover:bg-muted transition-all font-semibold text-lg">
-                Agendar demonstração
-              </button>
+              <Button
+                size={"lg"}
+                className="bg-primary h-12 flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main"
+              >
+                PRIMARY OPTION
+                <div className="bg-input/20 size-6 text-primary-foreground justify-center items-center flex overflow-clip relative rounded-full p-1">
+                  <ArrowUpRight className="size-5 absolute -translate-x-3.5 translate-y-3.5 group-hover/button-main:translate-0 duration-200 ease-in-out transition-transform" />
+                  <ArrowUpRight className="size-5 absolute group-hover/button-main:translate-x-3.5 group-hover/button-main:-translate-y-3.5 duration-200 ease-in-out transition-transform" />
+                </div>
+              </Button>
+              <Button
+                size={"lg"}
+                className="text-base h-12"
+                variant="outline"
+              >
+                SECOND OPTION
+              </Button>
             </div>
             <p className="text-sm text-muted-foreground">
               Sem cartão de crédito • Teste de 14 dias • Setup em 5 minutos
@@ -137,7 +112,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card/50">
+      <footer className="border-t py-8 border-border bg-card/50">
         <div className="container mx-auto px-6 py-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div>

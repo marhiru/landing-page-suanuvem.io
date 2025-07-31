@@ -1,6 +1,9 @@
 import React from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
+// Add imports for Card components
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+
 // Types para os dados de depoimentos
 interface Testimonial {
   quote: string;
@@ -51,18 +54,14 @@ export default function CustomerStories() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="flex gap-8">
           {testimonials.map((testimonial, i) => (
-            <div key={i} className="p-8 bg-card glass rounded-xl border">
-              <div className="mb-6">
-                <p className="text-lg text-card-foreground leading-relaxed">
-                  "{testimonial.quote}"
-                </p>
-              </div>
-
-              <div className="flex items-center gap-4">
+            <Card key={i} className="p-4 bg-card border">
+              <CardHeader className="flex items-center gap-4">
                 <Avatar>
-                  <AvatarFallback>{testimonial.author.charAt(0)}</AvatarFallback>
+                  <AvatarFallback>
+                    {testimonial.author.charAt(0)}
+                  </AvatarFallback>
                 </Avatar>
                 <div className="flex-1">
                   <div className="font-semibold text-card-foreground">
@@ -72,17 +71,21 @@ export default function CustomerStories() {
                     {testimonial.title}, {testimonial.company}
                   </div>
                 </div>
-              </div>
-
-              <div className="mt-4 pt-4 border-t border-border">
-                <div className="text-sm font-medium text-primary">
+              </CardHeader>
+              <CardContent className="p-0">
+                <p className="text-lg tracking-tight font-medium text-card-foreground leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
+              </CardContent>
+              <CardFooter className="p-0 pt-4 border-t border-border">
+                <div className="text-sm tracking-tight font-semibold text-primary">
                   {testimonial.metric}
                 </div>
-              </div>
-            </div>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>
     </section>
   );
-} 
+}

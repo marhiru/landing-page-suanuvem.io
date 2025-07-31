@@ -66,7 +66,7 @@ export default function FeaturesBentoGrid() {
         {/* Bento Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-7xl mx-auto">
           {/* N8N Integration - Large Card */}
-          <div className="md:col-span-2 lg:col-span-2 h-80 p-6 bg-card glass rounded-xl border hover:shadow-lg flex flex-col">
+          <div className="md:col-span-2 lg:col-span-2 h-80 p-6 bg-card rounded-xl border hover:shadow-lg flex flex-col">
             <div className="flex-1 space-y-1">
               <div className="flex items-start justify-between">
                 <div>
@@ -112,7 +112,7 @@ export default function FeaturesBentoGrid() {
           </div>
 
           {/* DevOps Consulting - Medium Card */}
-          <div className="md:col-span-2 lg:col-span-2 h-80 p-6 bg-card glass rounded-xl border hover:shadow-lg flex flex-col">
+          <div className="md:col-span-2 lg:col-span-2 h-80 p-6 bg-card rounded-xl border hover:shadow-lg flex flex-col">
             <Settings className="w-10 h-10 text-primary mb-3" />
             <h3 className="text-lg font-semibold mb-2">Consultoria DevOps</h3>
             <p className="text-muted-foreground text-sm mb-4">
@@ -124,32 +124,32 @@ export default function FeaturesBentoGrid() {
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-xs">
                   <GitBranch className={`w-3 h-3 transition-all duration-100 ${
-                    pipelineStep === 0 ? 'text-green-400 transition-all' : 'text-green-400'
+                    pipelineStep === 0 ? 'text-foreground transition-all' : 'text-muted-foreground'
                   }`} />
                   <span className={`transition-colors duration-500 ${
-                    pipelineStep === 0 ? 'text-green-400 font-semibold' : 
-                    pipelineStep >= 0 ? 'text-green-400' : 'text-muted-foreground'
+                    pipelineStep === 0 ? 'text-foreground' : 
+                    pipelineStep >= 0 ? 'text-muted-foreground' : 'text-muted-foreground'
                   }`}>
                     Build {pipelineStep > 0 ? '✓' : pipelineStep === 0 ? '→' : '○'}
                   </span>
                   <div className={`ml-auto text-xs transition-all duration-100 ${
-                    pipelineStep === 0 ? 'text-green-400 font-bold' : 'text-muted-foreground'
+                    pipelineStep === 0 ? 'text-foreground font-bold' : 'text-muted-foreground'
                   }`}>
                     {pipelineStep === 0 ? `${pipelineTimer.toFixed(1)}s` : '2.3s'}
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-xs">
                   <Activity className={`w-3 h-3 transition-all duration-100 ${
-                    pipelineStep === 1 ? 'text-blue-400 transition-all' : 'text-blue-400'
+                    pipelineStep === 1 ? 'text-destructive transition-all' : 'text-muted-foreground'
                   }`} />
                   <span className={`transition-colors duration-500 ${
-                    pipelineStep === 1 ? 'text-blue-400 font-semibold' : 
-                    pipelineStep >= 1 ? 'text-blue-400' : 'text-muted-foreground'
+                    pipelineStep === 1 ? 'text-destructive font-semibold' : 
+                    pipelineStep >= 1 ? 'text-muted-foreground' : 'text-muted-foreground'
                   }`}>
                     Test {pipelineStep > 1 ? '✓' : pipelineStep === 1 ? '→' : '○'}
                   </span>
                   <div className={`ml-auto text-xs transition-all duration-100 ${
-                    pipelineStep === 1 ? 'text-blue-400 font-bold' : 'text-muted-foreground'
+                    pipelineStep === 1 ? 'text-destructive font-bold' : 'text-muted-foreground'
                   }`}>
                     {pipelineStep === 1 ? `${pipelineTimer.toFixed(1)}s` : '1.8s'}
                   </div>
@@ -180,18 +180,18 @@ export default function FeaturesBentoGrid() {
                     <div 
                       className={`h-1 rounded transition-all duration-500 ${
                         pipelineStep === 0 
-                          ? 'bg-green-400 flex-[1.5]' 
+                          ? 'bg-foreground flex-[1.5]' 
                           : pipelineStep >= 0 
-                            ? 'bg-green-400 opacity-20 flex-[0.8]' 
+                            ? 'bg-foreground/20 flex-[0.8]' 
                             : 'bg-muted flex-[0.8]'
                       }`}
                     ></div>
                     <div 
                       className={`h-1 rounded transition-all duration-500 ${
                         pipelineStep === 1 
-                          ? 'bg-blue-400 flex-[1.5]' 
+                          ? 'bg-destructive flex-[1.5]' 
                           : pipelineStep >= 1 
-                            ? 'bg-blue-400 opacity-20 flex-[0.8]' 
+                            ? 'bg-destructive/20 flex-[0.8]' 
                             : 'bg-muted flex-[0.8]'
                       }`}
                     ></div>
@@ -215,7 +215,7 @@ export default function FeaturesBentoGrid() {
           </div>
 
           {/* VDS Sales - Compact Card */}
-          <div className="md:col-span-2 lg:col-span-2 h-80 p-6 bg-card glass rounded-xl border hover:shadow-lg flex flex-col">
+          <div className="md:col-span-2 lg:col-span-2 h-80 p-6 bg-card rounded-xl border hover:shadow-lg flex flex-col">
             <div className="flex items-center justify-between mb-3">
               <HardDrive className="w-8 h-8 text-primary" />
               <div className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
@@ -267,7 +267,7 @@ export default function FeaturesBentoGrid() {
           </div>
 
           {/* Migration Services - Large Card */}
-          <div className="md:col-span-4 lg:col-span-3 h-80 p-6 bg-card glass rounded-xl border hover:shadow-lg flex flex-col">
+          <div className="md:col-span-4 lg:col-span-3 h-80 p-6 bg-card rounded-xl border hover:shadow-lg flex flex-col">
             <ArrowRightLeft className="w-10 h-10 text-primary mb-3" />
             <h3 className="text-xl font-semibold mb-2">
               Migração para Estrutura Interna
@@ -315,7 +315,7 @@ export default function FeaturesBentoGrid() {
           </div>
 
           {/* Architecture Consulting - Large Card */}
-          <div className="md:col-span-4 lg:col-span-3 h-80 p-6 bg-card glass rounded-xl border hover:shadow-lg flex flex-col">
+          <div className="md:col-span-4 lg:col-span-3 h-80 p-6 bg-card rounded-xl border hover:shadow-lg flex flex-col">
             <Layers className="w-10 h-10 text-primary mb-3" />
             <h3 className="text-lg font-semibold mb-2">
               Consultoria em Arquitetura

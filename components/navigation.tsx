@@ -70,7 +70,7 @@ export default function Navigation() {
               <button className="text-foreground hover:text-primary transition-colors">
                 Entrar
               </button>
-              <button className="btn-primary px-6 py-2 rounded-lg font-semibold">
+              <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold">
                 Começar
               </button>
             </div>
