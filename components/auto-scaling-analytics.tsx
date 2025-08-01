@@ -1,5 +1,4 @@
-import React from "react";
-import { Area, AreaChart, XAxis, YAxis, ResponsiveContainer } from "recharts";
+import { Area, AreaChart, YAxis } from "recharts";
 import { Badge } from "./ui/badge";
 import { ChartConfig, ChartContainer } from "./ui/chart";
 
@@ -10,7 +9,6 @@ interface ScalingDataPoint {
 }
 
 export default function AutoScalingAnalytics() {
-  // Dados simplificados do gráfico - métrica unificada de scaling
   const chartConfig = {
     scaling: {
       label: "Taxa de crescimento",
