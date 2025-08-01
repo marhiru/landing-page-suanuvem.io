@@ -4,8 +4,7 @@ import { slugs } from "@/labels/slugs";
 import { wordsRotation } from "@/labels/words";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { ArrowUpRight } from "lucide-react";
+import { Input } from "./common/input/input";
 
 export default function BigNumberSocialProof() {
   const icons = slugs.map(
