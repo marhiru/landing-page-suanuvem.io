@@ -7,6 +7,7 @@ import CPPIcon from "./icons/cpp";
 import DartIcon from "./icons/dart";
 import GoIcon from "./icons/go";
 import KotlinIcon from "./icons/kotlin";
+import { IconCloud } from "./icon-cloud";
 
 // Types para as estatísticas
 interface Stat {
@@ -17,7 +18,7 @@ interface Stat {
 
 // Types para os logos/ícones
 interface LogoItem {
-  icon: React.ComponentType<{ 
+  icon: React.ComponentType<{
     width?: number | string;
     height?: number | string;
     className?: string;
@@ -33,127 +34,56 @@ export default function BigNumberSocialProof() {
     { value: "40%", label: "Economia Média", icon: TrendingUp },
   ];
 
-  const logoGroups: LogoItem[][] = [
-    [
-      { 
-        icon: CobolIcon,
-      },
-      { 
-        icon: CIcon,
-      },
-      { 
-        icon: CPPIcon,
-      },
-      { 
-        icon: DartIcon,
-      },
-    ],
-    // Grupo 2: Frameworks
-    [
-      { 
-        icon: GoIcon,
-      },
-      { 
-        icon: KotlinIcon,
-      },
-      { 
-        icon: CobolIcon, // Placeholder até criar o ícone
-      },
-      { 
-        icon: CobolIcon, // Placeholder até criar o ícone
-      },
-    ],
-    // Grupo 3: Ferramentas
-    [
-      { 
-        icon: CobolIcon, // Placeholder até criar o ícone
-      },
-      { 
-        icon: CobolIcon, // Placeholder até criar o ícone
-      },
-      { 
-        icon: CobolIcon, // Placeholder até criar o ícone
-      },
-      { 
-        icon: CobolIcon, // Placeholder até criar o ícone
-      },
-    ],
+  const slugs = [
+    "typescript",
+    "javascript",
+    "dart",
+    "java",
+    "react",
+    "flutter",
+    "android",
+    "html5",
+    "css3",
+    "nodedotjs",
+    "express",
+    "nextdotjs",
+    "prisma",
+    "amazonaws",
+    "postgresql",
+    "firebase",
+    "nginx",
+    "vercel",
+    "kubernetes",
+    "microsoftazure",
+    "cypress",
+    "docker",
+    "git",
+    "portainer",
+    "github",
+    "gitlab",
+    "visualstudiocode",
+    "androidstudio",
+    "sonarqube",
+    "cobol",
   ];
 
-  const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
-
-  // Alternar grupos a cada 2 segundos
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentGroupIndex((prevIndex) => (prevIndex + 1) % logoGroups.length);
-  //   }, 4000);
-
-  //   return () => clearInterval(interval);
-  // }, [logoGroups.length]);
+  const icons = slugs.map(
+    (slug) => `https://cdn.simpleicons.org/${slug}/b3d2bc`
+  );
 
   return (
     <section className="py-16">
       <div className="mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold mb-8">
-          Migre sua infraestrutura, não importa a
-          <span className="text-5xl text-primary ml-2 italic font-normal tracking-tight font-serif">
+        <h2 className="text-4xl tracking-tight font-bold mb-8">
+          Migre sua infraestrutura, <br /> não importa a 
+          <span className="text-5xl bg-gradient-to-r from-foreground to-primary text-transparent bg-clip-text ml-2 italic font-normal tracking-tight font-serif">
             tecnologia
           </span>
         </h2>
-        
-        {/* Logo Wall com AnimatePresence */}
+
         <div className="flex w-full gap-12 items-center justify-center mt-12 relative">
           <AnimatePresence mode="wait">
-            {logoGroups[currentGroupIndex].map((logo, i) => (
-              <motion.div
-                key={`${currentGroupIndex}-${i}`}
-                initial={{ 
-                  opacity: 0, 
-                  scale: 0.8, 
-                  y: 20,
-                  filter: "blur(8px)"
-                }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: 1, 
-                  y: 0,
-                  filter: "blur(0px)"
-                }}
-                exit={{ 
-                  opacity: 0, 
-                  scale: 0.8, 
-                  y: -20,
-                  filter: "blur(8px)"
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 25,
-                  mass: 0.8,
-                  duration: 0.8,
-                  delay: i * 0.15,
-                  ease: "easeInOut"
-                }}
-                className="text-center p-1"
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { 
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 15
-                  }
-                }}
-              >
-                <motion.div
-                  className="flex items-center justify-center mx-auto"
-                >
-                  <logo.icon
-                    className="size-24"
-                    fill="#aaa"
-                  />
-                </motion.div>
-              </motion.div>
-            ))}
+            <IconCloud images={icons} />
           </AnimatePresence>
         </div>
 

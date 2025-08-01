@@ -42,6 +42,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   const iconCanvasesRef = useRef<HTMLCanvasElement[]>([]);
   const imagesLoadedRef = useRef<boolean[]>([]);
 
+  // Create icon canvases once when icons/images change
   useEffect(() => {
     if (!icons && !images) return;
 
@@ -76,7 +77,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
           };
         } else {
           // Handle SVG icons
-          offCtx.scale(0.4, 0.4);
+          offCtx.scale(0.4, 1.4);
           const svgString = renderToString(item as React.ReactElement);
           const img = new Image();
           img.src = "data:image/svg+xml;base64," + btoa(svgString);
@@ -116,7 +117,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
         y: y * 100,
         z: z * 100,
         scale: 1,
-        opacity: 1,
+        opacity:1,
         id: i,
       });
     }

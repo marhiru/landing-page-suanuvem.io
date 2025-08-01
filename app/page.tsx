@@ -57,7 +57,7 @@ export default function LandingPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <HeroSection />
+      {/* <HeroSection /> */}
 
       {/* Social Proof - Logo Wall */}
       {/* <SocialProof /> */}
