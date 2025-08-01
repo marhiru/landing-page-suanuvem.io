@@ -1,9 +1,6 @@
 import {
-  Star,
-  ArrowRight,
-  PlayCircle,
-  Check,
-  ArrowUpRight,
+  Star, Check,
+  ArrowUpRight
 } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -74,21 +71,7 @@ export default function HeroSection() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size={"lg"}
-                className="bg-primary h-12 flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main"
-              >
-                PRIMARY OPTION
-                <div className="bg-input/20 size-6 text-primary-foreground justify-center items-center flex overflow-clip relative rounded-full p-1">
-                  <ArrowUpRight className="size-5 absolute -translate-x-3.5 translate-y-3.5 group-hover/button-main:translate-0 duration-200 ease-in-out transition-transform" />
-                  <ArrowUpRight className="size-5 absolute group-hover/button-main:translate-x-3.5 group-hover/button-main:-translate-y-3.5 duration-200 ease-in-out transition-transform" />
-                </div>
-              </Button>
-              <Button size={"lg"} className="text-base h-12" variant="outline">
-                SECOND OPTION
-              </Button>
-            </div>
+            
 
             {/* Trust Indicators */}
             <div className="flex items-center gap-8 text-white/60 text-sm">
