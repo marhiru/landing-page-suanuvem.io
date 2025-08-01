@@ -91,20 +91,11 @@ export default function BigNumberSocialProof() {
         </h2>
 
         <div className="flex flex-col w-full items-center justify-center sm:flex-row gap-4">
-          {/* <Button
-            size={"lg"}
-            className="bg-primary h-12 flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main"
-          >
-            PRIMARY OPTION
-            <div className="bg-input/20 size-6 text-primary-foreground justify-center items-center flex overflow-clip relative rounded-full p-1">
-              <ArrowUpRight className="size-5 absolute -translate-x-3.5 translate-y-3.5 group-hover/button-main:translate-0 duration-200 ease-in-out transition-transform" />
-              <ArrowUpRight className="size-5 absolute group-hover/button-main:translate-x-3.5 group-hover/button-main:-translate-y-3.5 duration-200 ease-in-out transition-transform" />
-            </div>
-          </Button>
-          <Button size={"lg"} className="text-base h-12" variant="outline">
+
+          { /*<Button size={"lg"} className="text-base h-12" variant="outline">
             SECOND OPTION
           </Button> */}
-          <Input />
+          <Input placeholder="Qual é seu email para contato?" />
         </div>
 
         <div className="flex w-full gap-12 items-center justify-center mt-12 relative">
