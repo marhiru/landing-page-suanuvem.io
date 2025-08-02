@@ -43,18 +43,14 @@ export default function BigNumberSocialProof() {
     <section className="py-16">
       <div className="mx-auto px-6 text-center">
         <h2 className="text-5xl/tight tracking-tight items-center justify-center font-bold mb-8 relative">
-          {/* <AnimateSharedLayout> */}
-          <motion.span className="inline-block">
-            Migre sua{" "}
-          </motion.span>
+          <motion.span className="inline-block">Migre sua </motion.span>
           <motion.div
-            // layout
             className="inline-flex items-center justify-center ml-2 overflow-clip"
             animate={{
               width: currentWord.containerSize,
               transition: {
                 ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.171
+                delay: 0.171,
               },
             }}
           >
@@ -65,12 +61,6 @@ export default function BigNumberSocialProof() {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                // transition={{
-                //   type: "spring",
-                //   stiffness: 280,
-                //   damping: 18,
-                //   mass: 1,
-                // }}
                 className="inline-block"
               >
                 {currentWord.word}
