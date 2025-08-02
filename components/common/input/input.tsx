@@ -37,9 +37,9 @@ export function Input({
   return (
     <form className={cn(inputVariants({ variant, size, className }))}>
       <Comp
-        className="focus-visible:outline-none h-auto w-fu p-1 lg:pl-2 lg:pr-1"
+        className="focus-visible:outline-none w-64 h-auto p-1 lg:pl-2 lg:pr-4"
         style={{
-          maskImage: "linear-gradient(to right, #000 92%, transparent)",
+          maskImage: "linear-gradient(to right, #000 85%, transparent)",
         }}
         {...props}
       />
