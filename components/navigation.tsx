@@ -24,14 +24,16 @@ export default function Navigation() {
 
   const logoVariants = {
     initial: {
-      y: 400,
-      x: 450,
+      top: "90%",
+      left: "50%",
+      transform: "translateX(-50%) translateY(200%)",
       fontSize: "100px",
     },
     animate: {
-      y: 0,
-      x: 0,
-      fontSize: "14px",
+      top: "34%",
+      left: "11.4%",
+      fontSize: "16px",
+      transform: "translateX(10px)",
     },
   };
 
@@ -40,7 +42,16 @@ export default function Navigation() {
       border: "none",
     },
     animate: {
-      border: "1px bottom #fff",
+      borderBottom: "1px solid var(--border)",
+    },
+  };
+
+  const itemVariants = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 100,
     },
   };
 
@@ -60,32 +71,52 @@ export default function Navigation() {
 
       <motion.nav
         variants={navVariants}
-        initial={{ border: "none" }}
+        initial="initial"
+        animate="animate"
+        transition={{
+          duration: 0.5,
+          delay: 3
+        }}
         className="relative z-40 bg-background/80 backdrop-blur-md border-b border-border"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div
-              className="flex relative w-32 gap-2 items-center justify-start space-x-2"
-            >
-              <div className="w-8 h-8 bg-primary rounded-lg flex  items-center justify-center relative">
+            <div className="flex w-32 gap-2 items-center justify-start space-x-2">
+              <motion.div
+                variants={itemVariants}
+                transition={{
+                  duration: 0.5,
+                  delay: 3,
+                }}
+                initial="initial"
+                animate="animate"
+                className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center relative"
+              >
                 <Cloud className="w-5 h-5 text-primary-foreground font-bold" />
-              </div>
-                <motion.span
-                  variants={logoVariants}
-                  initial="initial"
-                  animate="animate"
-                  transition={{
-                    duration: 1,
-                    delay: 3,
-                    ease: [0.25, 0.1, 0.25, 1],
-                  }}
-                  className="absolute font-bold antialiased translate-x-10 tracking-wide"
-                >
-                  Suanuvem
-                </motion.span>
+              </motion.div>
+              <motion.p
+                variants={logoVariants}
+                initial="initial"
+                animate="animate"
+                transition={{
+                  duration: 0.5,
+                  delay: 3,
+                }}
+                className="absolute font-bold antialiased tracking-normal"
+              >
+                Suanuvem
+              </motion.p>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
+            <motion.div
+              variants={itemVariants}
+              initial="initial"
+              animate="animate"
+              transition={{
+                duration: 0.5,
+                delay: 3
+              }}
+              className="hidden md:flex items-center space-x-8"
+            >
               <a
                 href="#features"
                 className="text-foreground hover:text-primary transition-colors"
@@ -110,7 +141,7 @@ export default function Navigation() {
               <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold">
                 Começar
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </motion.nav>
