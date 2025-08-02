@@ -37,11 +37,14 @@ export function Input({
   return (
     <form className={cn(inputVariants({ variant, size, className }))}>
       <Comp
-        className="focus-visible:outline-none h-auto w-full p-1 lg:pl-2 lg:pr-1"
+        className="focus-visible:outline-none h-auto w-fu p-1 lg:pl-2 lg:pr-1"
+        style={{
+          maskImage: "linear-gradient(to right, #000 92%, transparent)",
+        }}
         {...props}
       />
       <Button
-        size={"lg"}
+        size={"sm"}
         className="bg-primary h-12 flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main"
       >
         {confirmMessage || "Confirmar"}
