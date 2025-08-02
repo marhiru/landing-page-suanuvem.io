@@ -5,7 +5,6 @@ import { ChartConfig, ChartContainer } from "./ui/chart";
 // Type para dados do gráfico
 interface ScalingDataPoint {
   scaling: number;
-
 }
 
 export default function AutoScalingAnalytics() {
@@ -29,48 +28,21 @@ export default function AutoScalingAnalytics() {
 
   return (
     <section className="py-16">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col gap-2 w-full items-center justify-center text-center mb-12">
-          {/* <div className="text-sm bg-primary/10 font-bold"> */}
-          <Badge className="bg-primary/10 tracking-normal" variant="outline">
-            Auto-scaling{" "}
-            <span className="bg-gradient-to-r text-xs from-foreground via-90% to-primary/80 bg-clip-text text-transparent">
-              Inteligente
-            </span>
-          </Badge>
-          {/* </div>   */}
-          <div className="div">
-            <h3 className="text-3xl font-semibold text-foreground mb-1 tracking-tight">
+      <div className="container grid grid-rows-2 mx-auto">
+        <div className="flex flex-col justify-between border border-border col-span-3 rounded-[var(--radius)] w-1/3 overflow-clip h-[446px] p-0">
+          <div className="flex flex-col items-start p-6">
+            <h3 className="text-2xl font-semibold text-foreground mb-1 tracking-tight">
               Empresas crescem 5x mais rápido
             </h3>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto tracking-tight">
+            <p className="text-base text-muted-foreground">
               Veja como nossa tecnologia acelera o crescimento empresarial
             </p>
           </div>
-        </div>
 
-        {/* Chart Only */}
-        <div className="bg-card rounded-xl border p-6">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <div className="inline-flex items-center px-1 py-1 rounded-full text-primary text-sm tracking-tight font-semibold mb-3">
-                Média de crescimento de clientes que usam nossa plataforma
-              </div>
-
-              <p className="text-sm text-muted-foreground"></p>
-            </div>
-            <div className="flex items-center gap-2 text-sm">
-              <div className="w-3 h-3 rounded-full bg-foreground"></div>
-              <span className="text-foreground font-medium">
-                Taxa de Crescimento
-              </span>
-            </div>
-          </div>
-
-          <div className="h-80 w-full">
-            <ChartContainer className="aspect-auto h-[250px] w-full" config={chartConfig}>
-              <AreaChart className="border-dashed" data={scalingData}>
-                {/* <defs>
+          <div className="h-80 w-full justify-end overflow-clip col-span-12">
+            <ChartContainer className="aspect-auto w-full" config={chartConfig}>
+              <AreaChart data={scalingData}>
+                <defs>
                   <linearGradient
                     id="scalingGradient"
                     x1="0"
@@ -78,16 +50,110 @@ export default function AutoScalingAnalytics() {
                     x2="0"
                     y2="1"
                   >
-                    <stop offset="5%" stopColor="var(--chart-1)" stopOpacity={0.2} />
-                    <stop offset="100%" stopColor="var(--chart-1)" stopOpacity={0} />
+                    <stop
+                      offset="5%"
+                      stopColor="var(--chart-1)"
+                      stopOpacity={0.2}
+                    />
+                    <stop
+                      offset="100%"
+                      stopColor="var(--chart-1)"
+                      stopOpacity={0}
+                    />
                   </linearGradient>
-                </defs> */}
-                <YAxis
-                  axisLine={false}
-                  tickLine={false}
-                  tick={{ fontSize: 12, fill: "#e8e8e3" }}
-                  domain={[0, 100]}
+                </defs>
+                <Area
+                  type="monotone"
+                  dataKey="scaling"
+                  stroke="var(--chart-1)"
+                  strokeWidth={1}
+                  color="var(--chart-1)"
+                  fillOpacity={1}
+                  fill="url(#scalingGradient)"
                 />
+              </AreaChart>
+            </ChartContainer>
+          </div>
+        </div>
+        <div className="flex flex-col justify-between border border-border col-span-2 rounded-[var(--radius)] w-1/3 overflow-clip h-[446px] p-0">
+          <div className="flex flex-col items-start p-6">
+            <h3 className="text-2xl font-semibold text-foreground mb-1 tracking-tight">
+              Empresas crescem 5x mais rápido
+            </h3>
+            <p className="text-base text-muted-foreground">
+              Veja como nossa tecnologia acelera o crescimento empresarial
+            </p>
+          </div>
+
+          <div className="h-80 w-full justify-end overflow-clip">
+            <ChartContainer className="aspect-auto w-full" config={chartConfig}>
+              <AreaChart data={scalingData}>
+                <defs>
+                  <linearGradient
+                    id="scalingGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop
+                      offset="5%"
+                      stopColor="var(--chart-1)"
+                      stopOpacity={0.2}
+                    />
+                    <stop
+                      offset="100%"
+                      stopColor="var(--chart-1)"
+                      stopOpacity={0}
+                    />
+                  </linearGradient>
+                </defs>
+                <Area
+                  type="monotone"
+                  dataKey="scaling"
+                  stroke="var(--chart-1)"
+                  strokeWidth={1}
+                  color="var(--chart-1)"
+                  fillOpacity={1}
+                  fill="url(#scalingGradient)"
+                />
+              </AreaChart>
+            </ChartContainer>
+          </div>
+        </div>
+        <div className="flex flex-col justify-between border border-border rounded-[var(--radius)] w-1/3 overflow-clip h-[446px] p-0">
+          <div className="flex flex-col items-start p-6">
+            <h3 className="text-2xl font-semibold text-foreground mb-1 tracking-tight">
+              Empresas crescem 5x mais rápido
+            </h3>
+            <p className="text-base text-muted-foreground">
+              Veja como nossa tecnologia acelera o crescimento empresarial
+            </p>
+          </div>
+
+          <div className="h-80 w-full justify-end overflow-clip">
+            <ChartContainer className="aspect-auto w-full" config={chartConfig}>
+              <AreaChart data={scalingData}>
+                <defs>
+                  <linearGradient
+                    id="scalingGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
+                    <stop
+                      offset="5%"
+                      stopColor="var(--chart-1)"
+                      stopOpacity={0.2}
+                    />
+                    <stop
+                      offset="100%"
+                      stopColor="var(--chart-1)"
+                      stopOpacity={0}
+                    />
+                  </linearGradient>
+                </defs>
                 <Area
                   type="monotone"
                   dataKey="scaling"
