@@ -75,9 +75,10 @@ export default function Navigation() {
         animate="animate"
         transition={{
           duration: 0.5,
-          delay: 3
+          // delay: 3
+
         }}
-        className="relative z-40 bg-background/80 backdrop-blur-md border-b border-border"
+        className="relative z-40 bg-background/80"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -99,7 +100,9 @@ export default function Navigation() {
                 initial="initial"
                 animate="animate"
                 transition={{
-                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 50,
+                  damping: 15,
                   delay: 3,
                 }}
                 className="absolute font-bold antialiased tracking-normal"

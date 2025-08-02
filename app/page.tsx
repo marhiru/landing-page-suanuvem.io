@@ -43,9 +43,11 @@ export default function LandingPage() {
   const contentVariants = {
     initial: {
       opacity: 0,
+      visibility: "hidden",
     },
     animate: {
       opacity: 100,
+      visibility: "visible",
     },
   };
 
@@ -59,7 +61,7 @@ export default function LandingPage() {
         initial="initial"
         animate="animate"
         transition={{
-          delay: 4
+          delay: 3.5
         }}
       >
         <BigNumberSocialProof />
