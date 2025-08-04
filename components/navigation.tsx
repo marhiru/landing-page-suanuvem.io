@@ -2,7 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import { Sun, Moon, Cloud } from "lucide-react";
+import { Button as BaseComp } from "@/components/ui/button"
 import { motion } from "motion/react";
+
+const Button = motion(BaseComp)
 
 export default function Navigation() {
   const [isDark, setIsDark] = useState(true);
@@ -24,18 +27,23 @@ export default function Navigation() {
 
   const logoVariants = {
     initial: {
-      top: "90%",
-      left: "50%",
-      transform: "translateX(-50%) translateY(200%)",
-      fontSize: "100px",
+      opacity: 0,
+      x: -20,
     },
     animate: {
-      top: "34%",
-      left: "11.4%",
-      fontSize: "16px",
-      transform: "translateX(10px)",
+      opacity: 1,
+      x: 0,
     },
+    buttonInitial: {
+      opacity: 0,
+      x: 20
+    },
+    buttonAnimate: {
+      opacity: 1,
+      x: 0
+    }
   };
+
 
   const navVariants = {
     initial: {
@@ -75,27 +83,16 @@ export default function Navigation() {
         animate="animate"
         transition={{
           duration: 0.5,
-          // delay: 3
+
 
         }}
         className="relative z-40 bg-background/80"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex w-32 gap-2 items-center justify-start space-x-2">
+            <div className="flex w-32 gap-2 items-center justify-start">
               <motion.div
-                variants={itemVariants}
-                transition={{
-                  duration: 0.5,
-                  delay: 3,
-                }}
-                initial="initial"
-                animate="animate"
                 className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center relative"
-              >
-                <Cloud className="w-5 h-5 text-primary-foreground font-bold" />
-              </motion.div>
-              <motion.p
                 variants={logoVariants}
                 initial="initial"
                 animate="animate"
@@ -103,48 +100,68 @@ export default function Navigation() {
                   type: "spring",
                   stiffness: 50,
                   damping: 15,
-                  delay: 3,
                 }}
-                className="absolute font-bold antialiased tracking-normal"
+              >
+                <Cloud className="w-5 h-5 text-primary-foreground font-bold" />
+              </motion.div>
+              <motion.p
+                className="font-bold antialiased tracking-normal"
+                variants={itemVariants}
+                initial="initial"
+                animate="animate"
+                transition={{
+                  duration: 0.5,
+                  delay: 0.5
+                }}
               >
                 Suanuvem
               </motion.p>
             </div>
-            <motion.div
-              variants={itemVariants}
-              initial="initial"
-              animate="animate"
-              transition={{
-                duration: 0.5,
-                delay: 3
-              }}
-              className="hidden md:flex items-center space-x-8"
-            >
-              <a
-                href="#features"
-                className="text-foreground hover:text-primary transition-colors"
+            <div className="flex gap-8 items-center justify-between">
+              <motion.div
+                variants={itemVariants}
+                initial="initial"
+                animate="animate"
+                transition={{
+                  duration: 0.5,
+                  delay: 0.5
+                }}
+                className="hidden md:flex items-center space-x-6"
               >
-                Recursos
-              </a>
-              <a
-                href="#customers"
-                className="text-foreground hover:text-primary transition-colors"
+                <a
+                  href="#features"
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  Recursos
+                </a>
+                <a
+                  href="#customers"
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  Clientes
+                </a>
+                <a
+                  href="#pricing"
+                  className="text-foreground hover:text-primary transition-colors"
+                >
+                  Preços
+                </a>
+                <button className="text-foreground hover:text-primary transition-colors">
+                  Entrar
+                </button>
+              </motion.div>
+              <Button
+                transition={{
+                  duration: 0.5
+                }}
+                variants={logoVariants}
+                initial="buttonInitial"
+                animate="buttonAnimate"
+              // className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold"
               >
-                Clientes
-              </a>
-              <a
-                href="#pricing"
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                Preços
-              </a>
-              <button className="text-foreground hover:text-primary transition-colors">
-                Entrar
-              </button>
-              <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold">
                 Começar
-              </button>
-            </motion.div>
+              </Button>
+            </div>
           </div>
         </div>
       </motion.nav>

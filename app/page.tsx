@@ -56,13 +56,7 @@ export default function LandingPage() {
       {/* Navigation */}
       <Navigation />
 
-      <motion.div
-        variants={contentVariants}
-        initial="initial"
-        animate="animate"
-        transition={{
-          delay: 3.5
-        }}
+      <div
       >
         <BigNumberSocialProof />
 
@@ -184,7 +178,7 @@ export default function LandingPage() {
             </div>
           </div>
         </footer>
-      </motion.div>
+      </div>
     </div>
   );
 }
