@@ -42,7 +42,7 @@ export default function Navigation() {
 
     const updateFloatingState = () => {
       const scrollY = window.scrollY;
-      setIsFloating(scrollY > 0);
+      setIsFloating(scrollY > 100);
       ticking = false;
     };
 
@@ -152,8 +152,8 @@ export default function Navigation() {
       <motion.nav
         variants={navVariants}
         initial="initial"
-        animate={isFloating ? "floating" : "normal"}
-        layout={false}
+        animate="floating"
+        layout={true}
         style={{
           willChange: "transform, max-width, margin, padding",
           backfaceVisibility: "hidden",
@@ -161,14 +161,12 @@ export default function Navigation() {
           transformStyle: "preserve-3d"
         }}
         transition={{
-          duration: 1,
-          ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier para suavidade
           maxWidth: {
             duration: 0.6,
-            ease: [0.0, 0.0, 0.2, 1] // easeOutIn - começa rápido, desacelera
+            ease: "easeInOut"
           },
           marginTop: {
-            duration: 0.2,
+            duration: 0.8,
             ease: "easeOut"
           },
           borderRadius: {
@@ -180,21 +178,13 @@ export default function Navigation() {
             ease: "easeOut"
           },
           marginLeft: {
-            duration: 0.6,
+            duration: 0.8,
             ease: "easeInOut"
           },
           marginRight: {
-            duration: 0.6,
+            duration: 0.8,
             ease: "easeInOut"
           },
-          paddingLeft: {
-            duration: 0.6,
-            ease: "easeInOut"
-          },
-          paddingRight: {
-            duration: 0.6,
-            ease: "easeInOut"
-          }
         }}
         className={`fixed top-0 w-full bg-background/20 z-40`}
       >
