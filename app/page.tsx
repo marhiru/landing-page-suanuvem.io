@@ -52,12 +52,10 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
-      {/* Navigation */}
+    <div className="min-h-screen bg-background w-full flex flex-col items-center justify-center transition-colors duration-300">
       <Navigation />
 
-      <div
-      >
+      <div className="container w-full items-center justify-center max-w-6xl">
         <BigNumberSocialProof />
 
         <AutoScalingAnalytics />
@@ -103,82 +101,77 @@ export default function LandingPage() {
         </section>
 
         {/* Footer */}
-        <footer className="border-t py-8 border-border bg-card/50">
-          <div className="container mx-auto px-6 py-12">
-            <div className="grid md:grid-cols-4 gap-8">
-              <div>
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                    <Cloud className="w-5 h-5 text-primary-foreground font-bold" />
-                  </div>
-                  <span className="text-xl font-bold">Suanuvem</span>
+      </div>
+      <footer className="border-t py-8 w-full border-border bg-card/50">
+        <div className="w-full px-6 py-12">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <Cloud className="w-5 h-5 text-primary-foreground font-bold" />
                 </div>
-                <p className="text-muted-foreground">
-                  Soluções cloud modernas para negócios modernos.
-                </p>
+                <span className="text-xl font-bold">Suanuvem</span>
               </div>
-
-              {[
-                {
-                  title: "Serviços",
-                  links: [
-                    "Migração Cloud",
-                    "Multi-Cloud",
-                    "DevOps",
-                    "Consultoria",
-                  ],
-                },
-                {
-                  title: "Empresa",
-                  links: ["Sobre", "Carreiras", "Blog", "Casos de Sucesso"],
-                },
-                {
-                  title: "Suporte",
-                  links: [
-                    "Central de Ajuda",
-                    "Contato",
-                    "Status",
-                    "Comunidade",
-                  ],
-                },
-              ].map((column, i) => (
-                <div key={i}>
-                  <h4 className="font-semibold mb-4">{column.title}</h4>
-                  <ul className="space-y-2">
-                    {column.links.map((link, j) => (
-                      <li key={j}>
-                        <a
-                          href="#"
-                          className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          {link}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <p className="text-muted-foreground">
+                Soluções cloud modernas para negócios modernos.
+              </p>
             </div>
 
-            <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-muted-foreground text-sm">
-                © 2024 Suanuvem. All rights reserved.
-              </p>
-              <div className="flex space-x-6 text-sm text-muted-foreground mt-4 md:mt-0">
-                <a href="#" className="hover:text-primary transition-colors">
-                  Privacidade
-                </a>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Termos
-                </a>
-                <a href="#" className="hover:text-primary transition-colors">
-                  Segurança
-                </a>
+            {[
+              {
+                title: "Serviços",
+                links: [
+                  "Migração Cloud",
+                  "Multi-Cloud",
+                  "DevOps",
+                  "Consultoria",
+                ],
+              },
+              {
+                title: "Empresa",
+                links: ["Sobre", "Carreiras", "Blog", "Casos de Sucesso"],
+              },
+              {
+                title: "Suporte",
+                links: ["Central de Ajuda", "Contato", "Status", "Comunidade"],
+              },
+            ].map((column, i) => (
+              <div key={i}>
+                <h4 className="font-semibold mb-4">{column.title}</h4>
+                <ul className="space-y-2">
+                  {column.links.map((link, j) => (
+                    <li key={j}>
+                      <a
+                        href="#"
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
+            ))}
+          </div>
+
+          <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-muted-foreground text-sm">
+              © 2024 Suanuvem. All rights reserved.
+            </p>
+            <div className="flex space-x-6 text-sm text-muted-foreground mt-4 md:mt-0">
+              <a href="#" className="hover:text-primary transition-colors">
+                Privacidade
+              </a>
+              <a href="#" className="hover:text-primary transition-colors">
+                Termos
+              </a>
+              <a href="#" className="hover:text-primary transition-colors">
+                Segurança
+              </a>
             </div>
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 }
