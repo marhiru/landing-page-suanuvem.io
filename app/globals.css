@@ -42,6 +42,19 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
+
+  @keyframes ripple {
+
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
 }
 
 :root {
@@ -237,4 +250,30 @@
 .dark .btn-primary:hover {
   background: oklch(0.85 0.2 130);
   box-shadow: 0 10px 25px oklch(0.8 0.18 130 / 0.4);
+}
+
+@keyframes beam {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-beam {
+  animation: beam 2s ease-in-out infinite;
+}
+
+.animate-beam-2 {
+  animation: beam 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-beam,
+  .animate-beam-2 {
+    animation: none;
+  }
 }
