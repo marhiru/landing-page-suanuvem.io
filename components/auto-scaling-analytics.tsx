@@ -55,7 +55,7 @@ export default function AutoScalingAnalytics() {
         </div>
 
         {/* Crescimento - Foco em resultados */}
-        <div id="features-2" className="flex flex-col justify-between p-6 h-auto border-x border-x-border relative overflow-hidden">
+        <div id="features-2" className="flex flex-col justify-between p-6 h-auto border-x border-x-border relative overflow-hidden scale-105">
           <div className="flex flex-col items-start relative z-10">
             <h3 className="text-xl font-semibold text-foreground mb-2 tracking-tight">
               Crescimento 5x mais rápido
