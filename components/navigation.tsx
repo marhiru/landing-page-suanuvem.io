@@ -36,7 +36,6 @@ export default function Navigation() {
     };
   }, []);
 
-  // Detectar mudanças de scroll para ativar/desativar modo flutuante
   useEffect(() => {
     let ticking = false;
 
@@ -152,8 +151,7 @@ export default function Navigation() {
       <motion.nav
         variants={navVariants}
         initial="initial"
-        animate="floating"
-        layout={true}
+        animate="normal"
         style={{
           willChange: "transform, max-width, margin, padding",
           backfaceVisibility: "hidden",
