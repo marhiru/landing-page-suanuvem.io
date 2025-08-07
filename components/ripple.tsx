@@ -26,16 +26,13 @@ export const Ripple = React.memo(function Ripple({
     >
       <CanvasRevealEffect
         animationSpeed={8}
-        opacities={[
-          0.8,
-          1
-        ]}
+        opacities={[0.8, 1]}
         showGradient={false}
         containerClassName="absolute inset-0 bg-black/5"
         colors={[
           [179, 182, 181],
           [232, 121, 249],
-          [179, 182, 181],
+          // [179, 182, 181],
           [179, 182, 181],
         ]}
         dotSize={2}
@@ -63,7 +60,7 @@ export const Ripple = React.memo(function Ripple({
                 maskImage:
                   i === 0
                     ? "none"
-                    : "radial-gradient(circle at center, var(--primary) 40%, transparent)",
+                    : "radial-gradient(circle at center, var(--primary) 60%, transparent)",
                 borderStyle,
                 borderWidth: "1px",
                 borderColor: `var(--muted-foreground)`,
