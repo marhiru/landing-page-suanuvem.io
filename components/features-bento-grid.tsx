@@ -46,7 +46,7 @@ export default function FeaturesBentoGrid() {
   }, []);
 
   return (
-    <section id="features" className="py-16 bg-muted/20">
+    <section id="features" className="py-16">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
@@ -103,10 +103,6 @@ export default function FeaturesBentoGrid() {
                   Database → Processamento → Deploy Cloud
                 </div>
               </div>
-            </div>
-
-            <div className="text-sm font-medium text-primary mt-auto">
-              50+ conectores prontos
             </div>
           </div>
 
@@ -207,10 +203,6 @@ export default function FeaturesBentoGrid() {
                 </div>
               </div>
             </div>
-
-            <div className="text-sm font-medium text-primary mt-auto">
-              3x deploy mais rápido
-            </div>
           </div>
 
           {/* VDS Sales - Compact Card */}
@@ -239,7 +231,7 @@ export default function FeaturesBentoGrid() {
               
               <div className="bg-muted/50 rounded-lg p-2 text-center flex flex-col w-full justify-center">
                 <div className="flex items-center justify-center gap-1 mb-1">
-                  <Server className="w-4 h-4 text-secondary" />
+                  <Server className="w-4 h-4 text-primary" />
                   <span className="font-bold text-sm">64GB</span>
                 </div>
                 <div className="text-xs text-muted-foreground">RAM</div>
@@ -258,8 +250,8 @@ export default function FeaturesBentoGrid() {
               <div className="text-sm font-medium text-primary">
                 99.9% SLA
               </div>
-              <div className="flex items-center gap-1 text-xs text-green-400">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="flex items-center gap-1 font-medium text-xs text-foreground">
+                <div className="w-2 h-2 bg-foreground rounded-full"></div>
                 <span>Healthy</span>
               </div>
             </div>
