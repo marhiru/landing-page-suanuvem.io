@@ -6,51 +6,11 @@ import BigNumberSocialProof from "@/components/big-number-social-proof";
 import AutoScalingAnalytics from "@/components/auto-scaling-analytics";
 import FeaturesBentoGrid from "@/components/features-bento-grid";
 import CustomerStories from "@/components/customer-stories";
+import FAQSection from "@/components/faq-section";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 
 export default function LandingPage() {
-  const timelineSteps = [
-    {
-      day: "Semana 1",
-      title: "Avaliação e Planejamento",
-      items: [
-        "Auditoria completa da infraestrutura em 2 dias",
-        "Estratégia de migração personalizada",
-        "Revisão de segurança e compliance",
-      ],
-    },
-    {
-      day: "Semana 2-3",
-      title: "Execução da Migração",
-      items: [
-        "Migração automatizada de workloads",
-        "Monitoramento em tempo real",
-        "Treinamento e transferência de conhecimento",
-      ],
-    },
-    {
-      day: "Semana 4",
-      title: "Otimização e Suporte",
-      items: [
-        "Ajuste de performance e otimização de custos",
-        "Setup de monitoramento 24/7",
-        "Suporte e manutenção contínuos",
-      ],
-    },
-  ];
-
-  const contentVariants = {
-    initial: {
-      opacity: 0,
-      visibility: "hidden",
-    },
-    animate: {
-      opacity: 100,
-      visibility: "visible",
-    },
-  };
-
   return (
     <div className="min-h-screen bg-background w-full flex flex-col items-center justify-center transition-colors duration-300">
       <Navigation />
@@ -64,7 +24,9 @@ export default function LandingPage() {
 
         <CustomerStories />
 
-        <section className="py-20">
+        <FAQSection />
+
+        {/* <section className="py-20">
           <div className="container mx-auto px-6 text-center">
             <div className="max-w-3xl mx-auto space-y-8">
               <h2 className="text-5xl font-bold">
@@ -98,7 +60,7 @@ export default function LandingPage() {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Footer */}
       </div>
