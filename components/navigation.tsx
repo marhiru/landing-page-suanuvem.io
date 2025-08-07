@@ -136,18 +136,6 @@ export default function Navigation() {
 
   return (
     <>
-      <button
-        onClick={toggleTheme}
-        className="fixed top-3.5 right-6 z-50 p-3 rounded-full bg-card glass border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-        aria-label="Toggle theme"
-      >
-        {isDark ? (
-          <Sun className="w-5 h-5 text-primary" />
-        ) : (
-          <Moon className="w-5 h-5 text-primary" />
-        )}
-      </button>
-
       <motion.nav
         variants={navVariants}
         initial="initial"
