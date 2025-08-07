@@ -1,21 +1,19 @@
 "use client";
 
-import { Cloud, ArrowUpRight } from "lucide-react";
+import { Cloud } from "lucide-react";
 import Navigation from "@/components/navigation";
 import BigNumberSocialProof from "@/components/big-number-social-proof";
 import AutoScalingAnalytics from "@/components/auto-scaling-analytics";
 import FeaturesBentoGrid from "@/components/features-bento-grid";
 import CustomerStories from "@/components/customer-stories";
 import FAQSection from "@/components/faq-section";
-import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-background w-full flex flex-col items-center justify-center transition-colors duration-300">
+    <div className="min-h-screen  bg-background w-full flex flex-col items-center justify-center transition-colors duration-300">
       <Navigation />
 
-      <div className="container w-full items-center justify-center max-w-6xl">
+      <div className="container py-14 w-full items-center justify-center max-w-6xl">
         <BigNumberSocialProof />
 
         <AutoScalingAnalytics />
@@ -25,44 +23,6 @@ export default function LandingPage() {
         <CustomerStories />
 
         <FAQSection />
-
-        {/* <section className="py-20">
-          <div className="container mx-auto px-6 text-center">
-            <div className="max-w-3xl mx-auto space-y-8">
-              <h2 className="text-5xl font-bold">
-                Pronto para escalar na nuvem?
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Junte-se a 2.000+ empresas que já usam a Suanuvem para
-                transformação cloud.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size={"lg"}
-                  className="bg-primary h-12 flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main"
-                >
-                  PRIMARY OPTION
-                  <div className="bg-input/20 size-6 text-primary-foreground justify-center items-center flex overflow-clip relative rounded-full p-1">
-                    <ArrowUpRight className="size-5 absolute -translate-x-3.5 translate-y-3.5 group-hover/button-main:translate-0 duration-200 ease-in-out transition-transform" />
-                    <ArrowUpRight className="size-5 absolute group-hover/button-main:translate-x-3.5 group-hover/button-main:-translate-y-3.5 duration-200 ease-in-out transition-transform" />
-                  </div>
-                </Button>
-                <Button
-                  size={"lg"}
-                  className="text-base h-12"
-                  variant="outline"
-                >
-                  SECOND OPTION
-                </Button>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Sem cartão de crédito • Teste de 14 dias • Setup em 5 minutos
-              </p>
-            </div>
-          </div>
-        </section> */}
-
-        {/* Footer */}
       </div>
       <footer className="border-t py-8 w-full border-border bg-card/50">
         <div className="w-full px-6 py-12">
