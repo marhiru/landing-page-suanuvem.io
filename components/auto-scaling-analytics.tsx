@@ -4,6 +4,7 @@ import { Ripple } from "./ripple";
 import { Fingerprint, TrendingUp } from "lucide-react";
 import { motion } from "motion/react";
 import { Badge } from "./ui/badge";
+import { Globe } from "./globe";
 
 // Type para dados do gráfico
 interface ScalingDataPoint {
@@ -31,7 +32,7 @@ export default function AutoScalingAnalytics() {
 
   return (
     <section className="pt-4 pb-16">
-      <div className="container max-w-6xl h-[512] border border-border grid grid-cols-3 mx-auto">
+      <div className="container max-w-6xl h-[512] md:mx-auto sm:hidden border border-border md:grid md:grid-cols-3 ">
         {/* Criptografia - Foco em segurança */}
         <div className="flex flex-col justify-between relative h-auto">
           <div className="flex flex-col items-start p-4">
@@ -39,8 +40,8 @@ export default function AutoScalingAnalytics() {
               Criptografia de ponta a ponta
             </h3>
             <p className="text-xs text-muted-foreground mb-4">
-              Criptografia de ponta a ponta que protege seus dados com
-              conformidade LGPD/GDPR, mantendo performance otimizada.
+              Criptografia de ponta a ponta, garantindo conformidade LGPD com
+              latência mínima e alta disponibilidade.
             </p>
           </div>
 
@@ -54,24 +55,26 @@ export default function AutoScalingAnalytics() {
         {/* Crescimento - Foco em resultados */}
         <div
           id="features-2"
-          className="flex flex-col justify-between h-auto border-x border-x-border relative overflow-hidden"
+          className="flex flex-col justify-between h-auto md:border-x md:border-x-border relative overflow-hidden"
         >
           <div className="flex flex-col items-start p-4 relative z-10">
             <h3 className="text-xl font-semibold text-foreground mb-2 tracking-tight">
               Crescimento 5x mais rápido
             </h3>
             <p className="text-xs text-muted-foreground">
-              Metodologia comprovada que acelera seu crescimento em 5x através
-              de otimizações inteligentes, garantindo resultados mensuráveis e
-              sustentáveis.
+              Infraestrutura multi-região por todo brasil que acelera seu
+              crescimento em 5x através de datacenters distribuídos, garantindo
+              performance otimizada e redundância.
             </p>
           </div>
 
-          {/* Gradiente sutil */}
+          <div className="absolute hidden md:flex top-full left-1/2 -translate-x-1/2 scale-115 -translate-y-1/2 w-full h-full items-center justify-center">
+            <Globe />
+          </div>
           <div
             style={{
               background:
-                "radial-gradient(150% 150% at 50% 0, transparent 40%, var(--primary) 90%, transparent 100%)",
+                "radial-gradient(150% 150% at 50% 0, transparent 40%, var(--foreground) 90%, transparent 100%)",
             }}
             className="absolute inset-0 opacity-20"
           />
@@ -84,14 +87,16 @@ export default function AutoScalingAnalytics() {
               Análise em tempo real
             </h3>
             <p className="text-xs text-muted-foreground">
-              Sistema de monitoramento em tempo real que acompanha suas métricas de crescimento com dashboards interativos, fornecendo insights acionáveis e relatórios detalhados.
+              Sistema de monitoramento em tempo real através de datacenters
+              distribuídos pelo Brasil, fornecendo métricas de crescimento com
+              latência mínima e alta confiabilidade.
             </p>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, filter: 'blur(4px)' }}
+            initial={{ opacity: 0, filter: "blur(4px)" }}
             animate={{ opacity: 1, filter: "none" }}
-            className="flex flex-col items-start justify-start gap-2 px-12"
+            className="flex flex-col items-start justify-start gap-2 px-4 lg:px-12"
           >
             <span className="tracking-wide font-semibold ml-1">Hoje:</span>
             <motion.div className="flex items-center justify-start gap-2">
@@ -118,7 +123,6 @@ export default function AutoScalingAnalytics() {
             }}
           />
           <div className="h-64 w-full relative">
-            {/* Grid de fundo shiny */}
             <ChartContainer
               className="overflow-clip h-64 scale-105 w-full relative z-20"
               config={chartConfig}
