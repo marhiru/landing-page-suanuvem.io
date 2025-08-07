@@ -1,6 +1,7 @@
 import React, { ComponentPropsWithoutRef, CSSProperties } from "react";
 
 import { cn } from "@/lib/utils";
+import { CanvasRevealEffect } from "./canvas-reveal-effect";
 
 interface RippleProps extends ComponentPropsWithoutRef<"div"> {
   mainCircleSize?: number;
@@ -18,11 +19,27 @@ export const Ripple = React.memo(function Ripple({
   return (
     <div
       className={cn(
-        "pointer-events-none absolute inset-0 select-none [mask-image:linear-gradient(to_bottom,white,transparent)]",
+        "pointer-events-none absolute inset-0 select-none [mask-image:linear-gradient(to_bottom_20%,white,transparent)]",
         className
       )}
       {...props}
     >
+      <CanvasRevealEffect
+        animationSpeed={8}
+        opacities={[
+          0.8,
+          1
+        ]}
+        showGradient={false}
+        containerClassName="absolute inset-0 bg-black/5"
+        colors={[
+          [179, 182, 181],
+          [232, 121, 249],
+          [179, 182, 181],
+          [179, 182, 181],
+        ]}
+        dotSize={2}
+      />
       {Array.from({ length: numCircles }, (_, i) => {
         const size = mainCircleSize + i * 70;
         const opacity = mainCircleOpacity - i * 0.03;
@@ -32,7 +49,10 @@ export const Ripple = React.memo(function Ripple({
         return (
           <div
             key={i}
-            className={`absolute rounded-[30%] border bg-primary/25 shadow-xl`}
+            className={cn(`absolute rounded-[2%] border bg-primary/25`, {
+              "shadow-[0_0_10px_rgba(179,182,181,0.6),0_0_4px_rgba(179,182,181,0.2),0_0_60px_rgba(179,182,181,0.2)]":
+                i === 0,
+            })}
             style={
               {
                 "--i": i,
@@ -41,7 +61,9 @@ export const Ripple = React.memo(function Ripple({
                 opacity,
                 animationDelay,
                 maskImage:
-                  "radial-gradient(circle at center, var(--primary) 50%, transparent)",
+                  i === 0
+                    ? "none"
+                    : "radial-gradient(circle at center, var(--primary) 40%, transparent)",
                 borderStyle,
                 borderWidth: "1px",
                 borderColor: `var(--muted-foreground)`,
