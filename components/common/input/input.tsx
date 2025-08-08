@@ -34,18 +34,19 @@ export function Input({
   ...props
 }: IInputSharedProps): JSX.Element {
   const Comp = primitive ? "input" : Base;
+  const isMobile = window.innerWidth < 640
   return (
     <form className={cn(inputVariants({ variant, size, className }))}>
       <Comp
-        className="focus-visible:outline-none w-64 h-auto p-1 lg:pl-2 lg:pr-4"
+        className="focus-visible:outline-none px-2 lg:w-64 h-auto p-1 lg:pl-2 lg:pr-4"
         style={{
-          maskImage: "linear-gradient(to right, #000 85%, transparent)",
+          maskImage: !isMobile ? "linear-gradient(to right, #000 85%, transparent)": "",
         }}
         {...props}
       />
       <Button
         size={"sm"}
-        className="bg-primary h-12 flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main"
+        className="bg-primary h-12 scale-[0.96] active:scale-90 flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main transition-transform duration-100"
       >
         {confirmMessage || "Confirmar"}
         <div className="bg-input/20 size-6 text-primary-foreground justify-center items-center flex overflow-clip relative rounded-full p-1">
