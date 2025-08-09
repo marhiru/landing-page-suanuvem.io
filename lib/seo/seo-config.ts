@@ -102,7 +102,6 @@ export const companyStructuredData = {
     "Web Hosting",
     "Virtual Private Servers",
     "Backup Services",
-    "Content Delivery Network",
     "Database as a Service"
   ],
   "areaServed": {

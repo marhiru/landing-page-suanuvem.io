@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     "servidor virtual vps",
     "infraestrutura cloud",
     "backup cloud seguro",
-    "cdn brasil",
     "database cloud",
     "kubernetes brasil"
   ],
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     url: 'https://suanuvem.io',
     siteName: 'SuaNuvem',
     title: 'SuaNuvem - Provedor de Cloud provider',
-    description: 'Infraestrutura cloud nacional com alta disponibilidade, segurança avançada e suporte especializado 24/7. Hospedagem, VPS, backup e CDN.',
+    description: 'Infraestrutura cloud nacional com alta disponibilidade, segurança avançada e suporte especializado 24/7. Hospedagem, VPS e backup.',
     images: [
       {
         url: '/og-image.jpg',
@@ -126,7 +125,6 @@ export default function RootLayout({
                 "Web Hosting", 
                 "Virtual Private Servers",
                 "Backup Services",
-                "Content Delivery Network",
                 "Database as a Service",
                 "Kubernetes Services"
               ],
@@ -152,7 +150,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        <link rel="dns-prefetch" href="//cdn.suanuvem.io" />
         
         {/* Security Headers */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />

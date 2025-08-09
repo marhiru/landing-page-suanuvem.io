@@ -66,11 +66,6 @@ export const suaNuvemSitemapEntries: SitemapEntry[] = [
     priority: 0.8
   },
   {
-    url: '/cdn-brasil',
-    changefreq: 'weekly',
-    priority: 0.8
-  },
-  {
     url: '/sobre',
     changefreq: 'monthly',
     priority: 0.7
