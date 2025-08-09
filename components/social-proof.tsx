@@ -20,7 +20,7 @@ export default function SocialProof() {
         <p className="text-center text-muted-foreground font-medium text-base mb-8">
           Confiada por gigantes que revolucionaram sua infraestrutura
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-2 opacity-60">
+        <div className="flex sm:flex-col md:flex-row flex-wrap justify-center items-center gap-2 opacity-60">
           {socialProofLogos.map((logo, i) => (
             <div
               key={i}

@@ -5,6 +5,7 @@ import { wordsRotation } from "@/labels/words";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./common/input/input";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 export default function BigNumberSocialProof() {
   const icons = slugs.map(
@@ -12,6 +13,7 @@ export default function BigNumberSocialProof() {
   );
 
   const [currentWord, setCurrentWord] = useState(wordsRotation[0]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,43 +41,58 @@ export default function BigNumberSocialProof() {
     },
   };
 
+  const getResponsiveWidth = () => {
+    if (isMobile) {
+      const wordLength = currentWord.word.length;
+      const baseWidth = Math.max(wordLength * 15.4, 80);
+      const maxWidth = 176;
+      return Math.min(baseWidth, maxWidth);
+    }
+    return currentWord.containerSize;
+  };
+
   return (
-    <section className="py-16">
+    <section className="py-36">
       <div className="mx-auto px-6 text-center">
-        <h2 className="text-5xl/tight tracking-tight items-center justify-center font-bold mb-8 relative">
-          <motion.span className="inline-block">Migre sua </motion.span>
-          <motion.div
-            className="inline-flex items-center justify-center ml-2 overflow-clip"
-            animate={{
-              width: currentWord.containerSize,
-              transition: {
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.171,
-              },
-            }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={currentWord.word}
-                variants={textVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                className="inline-block"
-              >
-                {currentWord.word}
-              </motion.span>
-            </AnimatePresence>
-          </motion.div>
+        <h2 className="text-3xl md:text-5xl/tight tracking-tight items-center justify-center font-semibold mb-8 relative">
+          <div className="inline-flex items-baseline flex-nowrap">
+            <motion.span className="inline-block mr-1.5 md:mr-2 whitespace-nowrap">
+              Migre sua
+            </motion.span>
+            <motion.div
+              id="text-container"
+              className="inline-block items-center max-w-[176px] sm:max-w-full justify-start overflow-clip sm:min-w-0"
+              animate={{
+                width: getResponsiveWidth(),
+                transition: {
+                  // ease: [0.25, 0.1, 0.25, 1],
+                  delay: 0.171,
+                },
+              }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentWord.word}
+                  variants={textVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  className="inline-block whitespace-nowrap"
+                >
+                  {currentWord.word}
+                </motion.span>
+              </AnimatePresence>
+            </motion.div>
+          </div>
           <br />
           não importa a
-          <span className="text-6xl text-primary bg-clip-text ml-2 italic font-normal tracking-tight font-serif">
+          <span className="text-3xl md:text-6xl text-primary bg-clip-text ml-2 italic font-normal tracking-tight font-serif">
             tecnologia
           </span>
         </h2>
 
         <div className="flex flex-col w-full items-center justify-center sm:flex-row gap-4">
-          <Input placeholder="Qual é seu email para contato?" />
+          <Input placeholder="Qual é seu melhor email para contato?" />
         </div>
 
         <div className="flex w-full gap-12 items-center justify-center mt-12 relative">

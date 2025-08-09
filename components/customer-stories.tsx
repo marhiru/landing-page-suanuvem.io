@@ -54,7 +54,7 @@ export default function CustomerStories() {
           </h2>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex xs:flex-row flex-col mx-auto items-center justify-center gap-8">
           {testimonials.map((testimonial, i) => (
             <Card key={i} className="p-4 bg-card border">
               <CardHeader className="flex items-center gap-4">

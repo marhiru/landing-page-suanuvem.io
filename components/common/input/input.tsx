@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 export const inputVariants = cva(
   "flex flex-col min-w-80 lg:flex-row has-[input:focus-visible]:ring-2 gap-4 lg:gap-2 ring-ring p-1 transition-all",
@@ -34,7 +35,8 @@ export function Input({
   ...props
 }: IInputSharedProps): JSX.Element {
   const Comp = primitive ? "input" : Base;
-  const isMobile = window.innerWidth < 640
+  const isMobile = useIsMobile();
+
   return (
     <form className={cn(inputVariants({ variant, size, className }))}>
       <Comp
@@ -46,7 +48,7 @@ export function Input({
       />
       <Button
         size={"sm"}
-        className="bg-primary h-12 scale-[0.96] active:scale-90 flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main transition-transform duration-100"
+        className="bg-primary h-12 scale-[0.96] active:scale-[0.92]  flex items-center justify-center text-base text-primary-foreground gap-2 group/button-main transition-all"
       >
         {confirmMessage || "Confirmar"}
         <div className="bg-input/20 size-6 text-primary-foreground justify-center items-center flex overflow-clip relative rounded-full p-1">

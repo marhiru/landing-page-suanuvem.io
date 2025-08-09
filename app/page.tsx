@@ -8,19 +8,19 @@ import FeaturesBentoGrid from "@/components/features-bento-grid";
 import CustomerStories from "@/components/customer-stories";
 import FAQSection from "@/components/faq-section";
 
-export default function LandingPage() {
+export default function Page() {
   return (
-    <div className="min-h-screen  bg-background w-full flex flex-col items-center justify-center transition-colors duration-300">
+    <div className="min-h-screen mx-auto overflow-y-hidden bg-background flex flex-col items-center justify-center transition-colors duration-300">
       <Navigation />
 
-      <div className="container py-14 w-full items-center justify-center max-w-6xl">
+      <div className="py-14 w-full items-center justify-center max-w-full lg:max-w-6xl">
         <BigNumberSocialProof />
 
         <AutoScalingAnalytics />
 
         <FeaturesBentoGrid />
 
-        <CustomerStories />
+        {/* <CustomerStories /> */}
 
         <FAQSection />
       </div>
@@ -43,19 +43,15 @@ export default function LandingPage() {
               {
                 title: "Serviços",
                 links: [
-                  "Migração Cloud",
-                  "Multi-Cloud",
-                  "DevOps",
-                  "Consultoria",
+                  "Computação",
+                  "Armazenamento", 
+                  "Redes & CDN",
+                  "Segurança",
                 ],
               },
               {
-                title: "Empresa",
-                links: ["Sobre", "Carreiras", "Blog", "Casos de Sucesso"],
-              },
-              {
-                title: "Suporte",
-                links: ["Central de Ajuda", "Contato", "Status", "Comunidade"],
+                title: "Soluções",
+                links: ["Migração", "DevOps", "Consultoria"],
               },
             ].map((column, i) => (
               <div key={i}>
@@ -64,7 +60,7 @@ export default function LandingPage() {
                   {column.links.map((link, j) => (
                     <li key={j}>
                       <a
-                        href="#"
+                        href="#features"
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
                         {link}

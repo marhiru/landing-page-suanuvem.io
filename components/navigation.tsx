@@ -235,14 +235,11 @@ export default function Navigation() {
                   Clientes
                 </a>
                 <a
-                  href="#pricing"
+                  href="#features"
                   className="text-foreground hover:text-primary transition-colors"
                 >
-                  Preços
+                  Soluções
                 </a>
-                <button className="text-foreground hover:text-primary transition-colors">
-                  Entrar
-                </button>
               </motion.div>
               <Button
                 transition={{

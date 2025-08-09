@@ -210,6 +210,98 @@ export function IconCloud({ icons, images }: IconCloudProps) {
     setIsDragging(false);
   };
 
+  // Handle touch events for mobile
+  const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    const rect = canvasRef.current?.getBoundingClientRect();
+    if (!rect || !canvasRef.current) return;
+
+    const touch = e.touches[0];
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+
+    const ctx = canvasRef.current.getContext("2d");
+    if (!ctx) return;
+
+    iconPositions.forEach((icon) => {
+      const cosX = Math.cos(rotationRef.current.x);
+      const sinX = Math.sin(rotationRef.current.x);
+      const cosY = Math.cos(rotationRef.current.y);
+      const sinY = Math.sin(rotationRef.current.y);
+
+      const rotatedX = icon.x * cosY - icon.z * sinY;
+      const rotatedZ = icon.x * sinY + icon.z * cosY;
+      const rotatedY = icon.y * cosX + rotatedZ * sinX;
+
+      const screenX = canvasRef.current!.width / 2 + rotatedX;
+      const screenY = canvasRef.current!.height / 2 + rotatedY;
+
+      const scale = (rotatedZ + 200) / 300;
+      const radius = 20 * scale;
+      const dx = x - screenX;
+      const dy = y - screenY;
+
+      if (dx * dx + dy * dy < radius * radius) {
+        const targetX = -Math.atan2(
+          icon.y,
+          Math.sqrt(icon.x * icon.x + icon.z * icon.z),
+        );
+        const targetY = Math.atan2(icon.x, icon.z);
+
+        const currentX = rotationRef.current.x;
+        const currentY = rotationRef.current.y;
+        const distance = Math.sqrt(
+          Math.pow(targetX - currentX, 2) + Math.pow(targetY - currentY, 2),
+        );
+
+        const duration = Math.min(2000, Math.max(800, distance * 1000));
+
+        setTargetRotation({
+          x: targetX,
+          y: targetY,
+          startX: currentX,
+          startY: currentY,
+          distance,
+          startTime: performance.now(),
+          duration,
+        });
+        return;
+      }
+    });
+
+    setIsDragging(true);
+    setLastMousePos({ x: touch.clientX, y: touch.clientY });
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    const rect = canvasRef.current?.getBoundingClientRect();
+    if (rect && e.touches[0]) {
+      const touch = e.touches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      setMousePos({ x, y });
+    }
+
+    if (isDragging && e.touches[0]) {
+      const touch = e.touches[0];
+      const deltaX = touch.clientX - lastMousePos.x;
+      const deltaY = touch.clientY - lastMousePos.y;
+
+      rotationRef.current = {
+        x: rotationRef.current.x + deltaY * 0.002,
+        y: rotationRef.current.y + deltaX * 0.002,
+      };
+
+      setLastMousePos({ x: touch.clientX, y: touch.clientY });
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
   // Animation and rendering
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -316,9 +408,13 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      className="rounded-lg"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className="rounded-lg w-full h-auto max-w-[400px] max-h-[400px] touch-manipulation"
       aria-label="Interactive 3D Icon Cloud"
       role="img"
+      style={{ touchAction: 'none' }}
     />
   );
 }

@@ -10,7 +10,7 @@ export const wordsRotation: IWordRotation[] = [
     },
     {
         word: "infraestrutura",
-        containerSize: 310,
+        containerSize: 300,
     },
 
 ]

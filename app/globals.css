@@ -39,10 +39,14 @@
   --color-card: var(--card);
   --radius: var(--radius);
   --radius-sm: calc(var(--radius) - 4px);
+  --xs: var(--xs);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
+
+  /* Custom breakpoints */
+  --breakpoint-xs: 32rem;
 
   @keyframes ripple {
 
@@ -56,6 +60,9 @@
     }
   }
 }
+
+/* Custom breakpoint xs */
+@custom-media --xs (width >= 32rem);
 
 :root {
   --background: oklch(0.9808 0.0028 128.4923);
@@ -91,7 +98,7 @@
   --sidebar-accent-foreground: oklch(0.4522 0.0454 137.0514);
   --sidebar-border: oklch(0.9039 0.0108 136.5622);
   --sidebar-ring: oklch(0.6078 0.0467 152.1877);
-  --font-sans: Quicksand, sans-serif;
+  --font-sans: var(--font-inter);
   --font-serif: Lora, serif;
   --font-mono: Inconsolata, monospace;
   --radius: 0.75rem;
@@ -141,7 +148,7 @@
   --sidebar-accent-foreground: oklch(0.9296 0.0067 106.5287);
   --sidebar-border: oklch(0.3821 0.0170 173.2270);
   --sidebar-ring: oklch(0.6996 0.0450 154.5771);
-  --font-sans: Quicksand, sans-serif;
+  --font-sans: var(--font-inter);
   --font-serif: Lora, serif;
   --font-mono: Inconsolata, monospace;
   --radius: 0.75rem;
