@@ -2,10 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Cloud } from "lucide-react";
-import { Button as BaseComp } from "@/components/ui/button";
 import { motion } from "motion/react";
-
-const Button = motion(BaseComp);
 
 export default function Navigation() {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -212,17 +209,6 @@ export default function Navigation() {
                   Soluções
                 </a>
               </motion.div>
-              <Button
-                transition={{
-                  duration: 0.5,
-                }}
-                variants={logoVariants}
-                initial="buttonInitial"
-                animate="buttonAnimate"
-              // className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold"
-              >
-                Começar
-              </Button>
             </div>
           </motion.div>
         </div>
