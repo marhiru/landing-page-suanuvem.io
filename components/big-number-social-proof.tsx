@@ -44,7 +44,7 @@ export default function BigNumberSocialProof() {
     if (isMobile) {
       const wordLength = currentWord.word.length;
       const baseWidth = Math.max(wordLength * 15.4, 80);
-      const maxWidth = 176;
+      const maxWidth = 184;
       return Math.min(baseWidth, maxWidth);
     }
     return currentWord.containerSize;
@@ -60,7 +60,7 @@ export default function BigNumberSocialProof() {
             </motion.span>
             <motion.div
               id="text-container"
-              className="inline-block items-center max-w-[176px] sm:max-w-full justify-start overflow-clip sm:min-w-0"
+              className="inline-block items-center max-w-[184px] sm:max-w-full justify-start overflow-clip sm:min-w-0"
               animate={{
                 width: getResponsiveWidth(),
                 transition: {
