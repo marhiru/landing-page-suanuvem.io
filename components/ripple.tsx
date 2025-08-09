@@ -52,7 +52,6 @@ export const Ripple = React.memo(function Ripple({
             })}
             style={
               {
-                "--i": i,
                 width: `${size}px`,
                 height: `${size}px`,
                 opacity,

@@ -6,6 +6,7 @@ import BigNumberSocialProof from "@/components/big-number-social-proof";
 import AutoScalingAnalytics from "@/components/auto-scaling-analytics";
 import FeaturesBentoGrid from "@/components/features-bento-grid";
 import FAQSection from "@/components/faq-section";
+import { Logo } from "@/components/logo";
 
 export default function Page() {
   return (
@@ -28,10 +29,12 @@ export default function Page() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <Cloud className="w-5 h-5 text-primary-foreground font-bold" />
-                </div>
-                <span className="text-xl font-bold">Suanuvem</span>
+                <Logo 
+                  size="sm"
+                  color="currentColor"
+                  className="text-foreground"
+                  aria-label="SUANVEM - Página inicial"
+                />
               </div>
               <p className="text-muted-foreground">
                 Soluções cloud modernas para negócios modernos.

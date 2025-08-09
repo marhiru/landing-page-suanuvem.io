@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Cloud } from "lucide-react";
 import { motion } from "motion/react";
+import { Logo } from "./logo";
 
 export default function Navigation() {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -152,9 +153,9 @@ export default function Navigation() {
             }}
             className="flex items-center justify-between"
           >
-            <div className="flex w-32 gap-2 items-center justify-start">
+            <div className="flex gap-2 items-center justify-start min-w-fit">
               <motion.div
-                className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center relative"
+                className="flex items-center justify-center relative"
                 variants={logoVariants}
                 initial="initial"
                 animate="animate"
@@ -164,20 +165,13 @@ export default function Navigation() {
                   damping: 15,
                 }}
               >
-                <Cloud className="w-5 h-5 text-primary-foreground font-bold" />
+                <Logo 
+                  size="xs"
+                  color="currentColor"
+                  className="text-foreground transition-colors duration-200"
+                  aria-label="SUANVEM - Página inicial"
+                />
               </motion.div>
-              <motion.p
-                className="font-bold antialiased tracking-normal"
-                variants={itemVariants}
-                initial="initial"
-                animate="animate"
-                transition={{
-                  duration: 0.5,
-                  delay: 0.5,
-                }}
-              >
-                Suanuvem
-              </motion.p>
             </div>
             <div className="flex gap-8 items-center justify-between">
               <motion.div
