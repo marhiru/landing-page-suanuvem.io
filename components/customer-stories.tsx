@@ -74,7 +74,7 @@ export default function CustomerStories() {
               </CardHeader>
               <CardContent className="p-0">
                 <p className="text-lg tracking-tight font-medium text-card-foreground leading-relaxed">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
               </CardContent>
               <CardFooter className="p-0 pt-4 border-t border-border">

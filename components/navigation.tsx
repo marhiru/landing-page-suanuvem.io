@@ -1,22 +1,19 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Sun, Moon, Cloud } from "lucide-react";
+import { Cloud } from "lucide-react";
 import { Button as BaseComp } from "@/components/ui/button";
 import { motion } from "motion/react";
 
 const Button = motion(BaseComp);
 
 export default function Navigation() {
-  const [isDark, setIsDark] = useState(true);
-  const [isFloating, setIsFloating] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
-    setIsDark(prefersDark);
     if (prefersDark) {
       document.documentElement.classList.add("dark");
     }
@@ -36,33 +33,7 @@ export default function Navigation() {
     };
   }, []);
 
-  useEffect(() => {
-    let ticking = false;
-
-    const updateFloatingState = () => {
-      const scrollY = window.scrollY;
-      setIsFloating(scrollY > 100);
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateFloatingState);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle("dark");
-  };
+  // Removed unused scroll effect
 
   const logoVariants = {
     initial: {

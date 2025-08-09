@@ -1,8 +1,6 @@
 import {
-  Star, Check,
-  ArrowUpRight
+  Star, Check
 } from "lucide-react";
-import { Button } from "./ui/button";
 
 // Types para as atividades do dashboard
 interface Activity {

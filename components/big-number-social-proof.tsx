@@ -3,7 +3,6 @@ import { IconCloud } from "./icon-cloud";
 import { slugs } from "@/labels/slugs";
 import { wordsRotation } from "@/labels/words";
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
 import { Input } from "./common/input/input";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 

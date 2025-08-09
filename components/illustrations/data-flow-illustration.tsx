@@ -39,8 +39,6 @@ export default function DataFlowIllustration() {
         (dataRect.top + dataRect.bottom) / 2 - containerRect.top;
       const relayCenterY =
         (relayRect.top + relayRect.bottom) / 2 - containerRect.top;
-      const serverCenterY =
-        (serverRect.top + serverRect.bottom) / 2 - containerRect.top;
 
       setLinePositions({
         dataToRelay: {

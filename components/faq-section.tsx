@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, Shield, Cloud, Zap, Server, Plus } from "lucide-react";
+import { Shield, Cloud, Server, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { CardContent } from "@/components/ui/card";
 
 interface FAQItem {
   question: string;

@@ -5,7 +5,6 @@ import Navigation from "@/components/navigation";
 import BigNumberSocialProof from "@/components/big-number-social-proof";
 import AutoScalingAnalytics from "@/components/auto-scaling-analytics";
 import FeaturesBentoGrid from "@/components/features-bento-grid";
-import CustomerStories from "@/components/customer-stories";
 import FAQSection from "@/components/faq-section";
 
 export default function Page() {

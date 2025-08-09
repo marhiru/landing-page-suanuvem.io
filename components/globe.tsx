@@ -44,7 +44,6 @@ export function Globe({
   className?: string;
   config?: COBEOptions;
 }) {
-  let width = 0;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
@@ -72,9 +71,11 @@ export function Globe({
   };
 
   useEffect(() => {
+    let canvasWidth = 0;
+    
     const onResize = () => {
       if (canvasRef.current) {
-        width = canvasRef.current.offsetWidth;
+        canvasWidth = canvasRef.current.offsetWidth;
       }
     };
 
@@ -83,13 +84,10 @@ export function Globe({
 
     const globe = createGlobe(canvasRef.current!, {
       ...config,
-      width: width * 2,
-      height: width * 2,
-      onRender: (state) => {
-        // if (!pointerInteracting.current) phi += 0.005;
-        // state.phi = phi + rs.get();
-        // state.width = width * 2;
-        // state.height = width * 2;
+      width: canvasWidth * 2,
+      height: canvasWidth * 2,
+      onRender: () => {
+        // Empty onRender function - removed unused state parameter
       },
     });
 

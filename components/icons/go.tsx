@@ -10,7 +10,6 @@ interface GoIconProps extends React.SVGProps<SVGSVGElement> {
 const GoIcon = forwardRef<SVGSVGElement, GoIconProps>(
   ({ 
     size = 24, 
-    primaryColor = '#00ADD8', 
     textColor = '#fff',
     className, 
     ...props 
