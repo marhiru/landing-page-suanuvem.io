@@ -53,7 +53,7 @@ export default function BigNumberSocialProof() {
   return (
     <section className="py-36">
       <div className="mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-5xl/tight tracking-tight items-center justify-center font-semibold mb-8 relative">
+        <h1 className="text-3xl md:text-5xl/tight tracking-tight items-center justify-center font-semibold mb-8 relative">
           <div className="inline-flex items-baseline flex-nowrap">
             <motion.span className="inline-block mr-1.5 md:mr-2 whitespace-nowrap">
               Migre sua
@@ -88,7 +88,7 @@ export default function BigNumberSocialProof() {
           <span className="text-3xl md:text-6xl text-primary bg-clip-text ml-2 italic font-normal tracking-tight font-serif">
             tecnologia
           </span>
-        </h2>
+        </h1>
 
         <div className="flex flex-col w-full items-center justify-center sm:flex-row gap-4">
           <Input placeholder="Qual é seu melhor email para contato?" />

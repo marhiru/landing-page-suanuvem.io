@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://suanuvem.io'),
   title: {
-    default: "SuaNuvem - Provedor de Cloud provider",
+    default: "SuaNuvem - Melhor provedor de cloud 100% nacional",
     template: "%s | SuaNuvem Cloud"
   },
   description: "Soluções completas em cloud computing com infraestrutura nacional. Hospedagem, servidores virtuais, backup e segurança de dados com suporte 24/7 em português.",
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "cloud computing brasil",
     "provedor cloud nacional", 
     "hospedagem cloud",
+    "sua nuvem",
+    "sua nuvem cloud",
     "servidor virtual vps",
     "infraestrutura cloud",
     "backup cloud seguro",
@@ -71,6 +73,17 @@ export const metadata: Metadata = {
     google: 'seu-google-verification-code',
     yandex: 'seu-yandex-verification-code',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -81,6 +94,20 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth w-full">
       <head>
+        {/* Favicon e ícones de aplicação - Configuração robusta e segura */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Meta tags para tema e cores */}
+        <meta name="theme-color" content="#A7BF8F" />
+        <meta name="msapplication-TileColor" content="#A7BF8F" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        
         {/* Structured Data para a empresa */}
         <script
           type="application/ld+json"
@@ -156,14 +183,6 @@ export default function RootLayout({
         <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-        
-        {/* App Icons otimizados */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#1e40af" />
-        <meta name="msapplication-TileColor" content="#1e40af" />
       </head>
       <body className={`${inter.variable} antialiased overflow-auto w-full dark min-h-screen`}>
         {children}
