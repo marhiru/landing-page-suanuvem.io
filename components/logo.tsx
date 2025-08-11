@@ -7,7 +7,7 @@ interface LogoSize {
 }
 
 const LOGO_SIZES: Record<string, LogoSize> = {
-  xs: { width: 98, height: 36 },
+  xs: { width: 112, height: 41 },
   sm: { width: 147, height: 54 },
   md: { width: 196, height: 72 },
   lg: { width: 245, height: 90 },
