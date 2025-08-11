@@ -1,8 +1,7 @@
 "use client";
 
-import { Cloud } from "lucide-react";
 import Navigation from "@/components/navigation";
-import BigNumberSocialProof from "@/components/big-number-social-proof";
+import BigNumberSocialProof from "@/components/hero";
 import AutoScalingAnalytics from "@/components/auto-scaling-analytics";
 import FeaturesBentoGrid from "@/components/features-bento-grid";
 import FAQSection from "@/components/faq-section";

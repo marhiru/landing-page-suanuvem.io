@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     url: 'https://suanuvem.io',
     siteName: 'SuaNuvem',
-    title: 'SuaNuvem - Provedor de Cloud provider',
+    title: 'SuaNuvem - Sua cloud provider',
     description: 'Infraestrutura cloud nacional com alta disponibilidade, segurança avançada e suporte especializado 24/7. Hospedagem, VPS e backup.',
     images: [
       {
