@@ -15,12 +15,7 @@ Crawl-delay: 10
 User-agent: MJ12bot
 Disallow: /
 
-# Bloquear áreas privadas
-Disallow: /admin/
-Disallow: /api/
-Disallow: /dashboard/
 Disallow: /_next/
-Disallow: /private/
 
 # Permitir bots verificados do Google
 User-agent: Googlebot
