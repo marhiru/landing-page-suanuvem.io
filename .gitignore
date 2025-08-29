@@ -13,6 +13,7 @@
 
 # locks
 *.lock
+*-lock.json
 
 # testing
 /coverage
