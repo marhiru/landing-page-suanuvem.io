@@ -2,15 +2,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { IconCloud } from "./icon-cloud";
 import { slugs } from "@/labels/slugs";
 import { wordsRotation } from "@/labels/words";
-import { useEffect, useState } from "react";
-import { Input } from "./common/input/input";
+import { useEffect, useMemo, useState } from "react";
 import { useIsMobile } from "@/hooks/use-is-mobile";
 
-export default function BigNumberSocialProof() {
-  const icons = slugs.map(
-    (slug) => `https://cdn.simpleicons.org/${slug}/b3d2bc`
-  );
+const icons = slugs.map(
+  (slug) => `https://cdn.simpleicons.org/${slug}/b3d2bc`
+);
 
+function BigNumberSocialProof() {
   const [currentWord, setCurrentWord] = useState(wordsRotation[0]);
   const isMobile = useIsMobile();
 
@@ -64,7 +63,6 @@ export default function BigNumberSocialProof() {
               animate={{
                 width: getResponsiveWidth(),
                 transition: {
-                  // ease: [0.25, 0.1, 0.25, 1],
                   delay: 0.171,
                 },
               }}
@@ -90,9 +88,9 @@ export default function BigNumberSocialProof() {
           </span>
         </h1>
 
-        <div className="flex flex-col w-full items-center justify-center sm:flex-row gap-4">
+        {/* <div className="flex flex-col w-full items-center justify-center sm:flex-row gap-4">
           <Input placeholder="Qual é seu melhor email para contato?" />
-        </div>
+        </div> */}
 
         <div className="flex w-full gap-12 items-center justify-center mt-12 relative">
           <AnimatePresence mode="wait">
@@ -102,4 +100,8 @@ export default function BigNumberSocialProof() {
       </div>
     </section>
   );
+}
+
+export function Hero() {
+  return useMemo(() => <BigNumberSocialProof />, []);
 }
