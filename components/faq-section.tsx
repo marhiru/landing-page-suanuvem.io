@@ -50,7 +50,7 @@ export default function FAQSection() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 lg:items-start">
             {/* Title and subtitle section */}
             <div className="lg:w-1/3 lg:sticky lg:top-8">
-              <motion.h2 
+              <motion.h2
                 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ export default function FAQSection() {
               >
                 Perguntas Frequentes
               </motion.h2>
-              <motion.p 
+              <motion.p
                 className="text-sm sm:text-base text-muted-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +132,7 @@ export default function FAQSection() {
           </div>
 
           {/* CTA Section */}
-          <motion.div 
+          <motion.div
             className="text-center mt-12 sm:mt-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -140,17 +140,20 @@ export default function FAQSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className="bg-primary/10 border border-primary/10 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-sm">
+              {/* <div className="flex flex-col w-full items-center justify-center sm:flex-row gap-4">
+          <Input placeholder="Qual é seu melhor email para contato?" />
+        </div> */}
               <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
                 Pronto para começar?
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 max-w-md mx-auto">
                 Nossa equipe de especialistas está pronta para ajudar você a encontrar a solução ideal para seu negócio.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              {/* <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button size="lg" className="bg-primary">
                   Falar com um Especialista
                 </Button>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </div>
