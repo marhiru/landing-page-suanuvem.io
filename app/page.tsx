@@ -1,11 +1,11 @@
 "use client";
 
 import Navigation from "@/components/navigation";
-import BigNumberSocialProof from "@/components/hero";
 import AutoScalingAnalytics from "@/components/auto-scaling-analytics";
 import FeaturesBentoGrid from "@/components/features-bento-grid";
 import FAQSection from "@/components/faq-section";
 import { Logo } from "@/components/logo";
+import { Hero } from "@/components/hero";
 
 export default function Page() {
   return (
@@ -13,14 +13,9 @@ export default function Page() {
       <Navigation />
 
       <div className="py-14 w-full items-center justify-center max-w-full lg:max-w-6xl">
-        <BigNumberSocialProof />
-
+        <Hero />
         <AutoScalingAnalytics />
-
         <FeaturesBentoGrid />
-
-        {/* <CustomerStories /> */}
-
         <FAQSection />
       </div>
       <footer className="border-t py-8 w-full border-border bg-card/50">
